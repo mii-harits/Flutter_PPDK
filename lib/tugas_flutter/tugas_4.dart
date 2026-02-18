@@ -19,7 +19,7 @@ class TugasEmpat extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(10.0),
             child: Text(
-              "BIODATA - PASIEN",
+              "Biodata - Pasien",
               style: TextStyle(
                 fontSize: 25,
               ),
