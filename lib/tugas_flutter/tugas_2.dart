@@ -32,7 +32,13 @@ class TugasDua extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Color(0xffBDE8F5),
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.teal,
+                    Color(0xff3BC1A8),
+                    Color(0xffBDE8F5),
+                  ] 
+                ),
                 borderRadius: BorderRadius.circular(20)
               ), 
               child: Column(
@@ -43,7 +49,10 @@ class TugasDua extends StatelessWidget {
                       SizedBox(width: 15),
                       Text(
                         "harits4work@gmail.com",
-                        style: TextStyle(fontSize: 17),
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ],
                   ),
@@ -56,7 +65,10 @@ class TugasDua extends StatelessWidget {
                       SizedBox(width: 15),
                       Text(
                         "31652936623",
-                        style: TextStyle(fontSize: 17),
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ],
                   ),
@@ -72,7 +84,10 @@ class TugasDua extends StatelessWidget {
                       Spacer(),
                       Text(
                         "+62-896-1152-4939",
-                        style: TextStyle(fontSize: 17),
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ],
                   ),
@@ -86,7 +101,10 @@ class TugasDua extends StatelessWidget {
                       Spacer(),
                       Text(
                         "Jakarta, Indonesia",
-                        style: TextStyle(fontSize: 17),
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ],
                   ),
@@ -193,7 +211,7 @@ class TugasDua extends StatelessWidget {
           //========== Visual Branding (Baris 6 ) ==========
           Center(
             child: Image.asset(
-              "assets/images/Silabus Logo.png",
+              "assets/images/Silabus New Logo.png",
               width: 200,
               height: 200,
               
