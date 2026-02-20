@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ppkd/Tugas_5/login_page.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas_4.dart';
 import 'package:flutter_ppkd/tugas_flutter/tugas_5.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas2.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: TugasLima(),
+      home: LoginPage(),
     );
   }
 }
