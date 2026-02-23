@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ppkd/Tugas_5/background_login.dart';
-import 'package:flutter_ppkd/Tugas_5/home_page.dart';
-import 'package:flutter_ppkd/Tugas_5/register.dart';
-import 'package:flutter_ppkd/Tugas_5/with_google.dart';
+import 'package:flutter_ppkd/Tugas_6/background_login.dart';
+import 'package:flutter_ppkd/Tugas_6/home_page.dart';
+import 'package:flutter_ppkd/Tugas_6/register.dart';
+import 'package:flutter_ppkd/Tugas_6/with_google.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatelessWidget {
