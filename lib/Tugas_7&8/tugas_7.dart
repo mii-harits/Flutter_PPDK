@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ppkd/Tugas_6/home_page.dart';
-import 'package:flutter_ppkd/Tugas_7/about_page.dart';
-import 'package:flutter_ppkd/Tugas_7/checkbox_page.dart';
-import 'package:flutter_ppkd/Tugas_7/date_picker_page.dart';
-import 'package:flutter_ppkd/Tugas_7/dropdown_page.dart';
-import 'package:flutter_ppkd/Tugas_7/home_page.dart';
-import 'package:flutter_ppkd/Tugas_7/switch_page.dart';
-import 'package:flutter_ppkd/Tugas_7/time_picker_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/about_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/checkbox_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/date_picker_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/dropdown_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/home_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/switch_page.dart';
+import 'package:flutter_ppkd/Tugas_7&8/time_picker_page.dart';
 
 class TugasTujuh extends StatefulWidget {
   const TugasTujuh({super.key});
