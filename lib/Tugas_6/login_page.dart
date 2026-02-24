@@ -241,7 +241,7 @@ class LoginPage extends StatelessWidget {
                               onTap: () {
                                 Navigator.pushAndRemoveUntil(
                                   context, 
-                                  MaterialPageRoute(builder: (context) => HomePage()),
+                                  MaterialPageRoute(builder: (context) => MyHomePage()),
                                   (Route) => false,
                                 );
                               },
