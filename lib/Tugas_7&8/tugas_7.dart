@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ppkd/Tugas_6/home_page.dart';
 import 'package:flutter_ppkd/Tugas_7&8/about_page.dart';
 import 'package:flutter_ppkd/Tugas_7&8/checkbox_page.dart';
 import 'package:flutter_ppkd/Tugas_7&8/date_picker_page.dart';

@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "title": "Kesehatan Umum",
+    "description": "Informasi seputar pengobatan dasar untuk menangani keluhan ringan seperti demam, nyeri, dan peradangan.",
+    "image": "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg",
+    "medications": [
+      {
+        "name": "Paracetamol",
+        "type": "Analgesik",
+        "description": "Meredakan nyeri dan demam ringan hingga sedang",
+        "dosage": "500 mg, 3x sehari",
+        "isPrescription": false
+      },
+      {
+        "name": "Ibuprofen",
+        "type": "NSAID",
+        "description": "Mengurangi nyeri, peradangan, dan demam",
+        "dosage": "200-400 mg, 3x sehari",
+        "isPrescription": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Kesehatan Mental",
+    "description": "Membahas kesehatan psikologis dan pengobatan untuk gangguan kecemasan maupun depresi.",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+    "medications": [
+      {
+        "name": "Fluoxetine",
+        "type": "Antidepresan (SSRI)",
+        "description": "Mengatasi depresi dan gangguan kecemasan",
+        "dosage": "20 mg per hari",
+        "isPrescription": true
+      },
+      {
+        "name": "Alprazolam",
+        "type": "Benzodiazepin",
+        "description": "Mengurangi kecemasan berat",
+        "dosage": "0.25-0.5 mg",
+        "isPrescription": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Gizi & Nutrisi",
+    "description": "Panduan suplemen dan nutrisi untuk menjaga daya tahan dan metabolisme tubuh.",
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
+    "medications": [
+      {
+        "name": "Vitamin C",
+        "type": "Suplemen",
+        "description": "Meningkatkan daya tahan tubuh",
+        "dosage": "500 mg per hari",
+        "isPrescription": false
+      },
+      {
+        "name": "Zinc",
+        "type": "Mineral",
+        "description": "Mendukung sistem imun dan metabolisme",
+        "dosage": "20 mg per hari",
+        "isPrescription": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Penyakit & Pencegahan",
+    "description": "Obat untuk pengendalian penyakit kronis serta pencegahan komplikasi.",
+    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    "medications": [
+      {
+        "name": "Amlodipine",
+        "type": "Antihipertensi",
+        "description": "Mengontrol tekanan darah tinggi",
+        "dosage": "5-10 mg per hari",
+        "isPrescription": true
+      },
+      {
+        "name": "Metformin",
+        "type": "Antidiabetik",
+        "description": "Mengontrol kadar gula darah",
+        "dosage": "500 mg, 2x sehari",
+        "isPrescription": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Pertolongan Pertama",
+    "description": "Penanganan awal untuk luka ringan, dehidrasi, dan kondisi darurat ringan.",
+    "image": "https://images.unsplash.com/photo-1584515933487-779824d29309",
+    "medications": [
+      {
+        "name": "Povidone Iodine",
+        "type": "Antiseptik",
+        "description": "Membersihkan luka untuk mencegah infeksi",
+        "dosage": "Oles sesuai kebutuhan",
+        "isPrescription": false
+      },
+      {
+        "name": "Oralit",
+        "type": "Rehidrasi",
+        "description": "Mengganti cairan tubuh saat diare",
+        "dosage": "Larutkan 1 sachet dalam air",
+        "isPrescription": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Kesehatan Ibu & Anak",
+    "description": "Suplemen dan kebutuhan kesehatan untuk ibu hamil dan anak.",
+    "image": "https://images.unsplash.com/photo-1516589091380-5d8e87df6999",
+    "medications": [
+      {
+        "name": "Asam Folat",
+        "type": "Vitamin",
+        "description": "Mendukung perkembangan janin",
+        "dosage": "400-800 mcg per hari",
+        "isPrescription": false
+      },
+      {
+        "name": "Zat Besi",
+        "type": "Suplemen",
+        "description": "Mencegah anemia pada ibu hamil",
+        "dosage": "1 tablet per hari",
+        "isPrescription": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Kebugaran & Olahraga",
+    "description": "Pendukung kebugaran tubuh dan pemulihan otot setelah aktivitas fisik.",
+    "image": "https://images.unsplash.com/photo-1554284126-aa88f22d8b74",
+    "medications": [
+      {
+        "name": "Magnesium",
+        "type": "Mineral",
+        "description": "Mencegah kram otot",
+        "dosage": "250-400 mg per hari",
+        "isPrescription": false
+      },
+      {
+        "name": "Diclofenac Gel",
+        "type": "NSAID Topikal",
+        "description": "Meredakan nyeri otot",
+        "dosage": "Oles 2-3x sehari",
+        "isPrescription": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Kesehatan Remaja",
+    "description": "Perawatan kesehatan yang umum dialami oleh remaja.",
+    "image": "https://images.unsplash.com/photo-1520975922284-9c4c3c7f5f4b",
+    "medications": [
+      {
+        "name": "Benzoyl Peroxide",
+        "type": "Topikal",
+        "description": "Mengatasi jerawat",
+        "dosage": "Oles tipis 1-2x sehari",
+        "isPrescription": false
+      },
+      {
+        "name": "Vitamin B Complex",
+        "type": "Suplemen",
+        "description": "Menunjang metabolisme tubuh",
+        "dosage": "1 tablet per hari",
+        "isPrescription": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Kesehatan Lansia",
+    "description": "Perawatan kesehatan untuk menjaga kualitas hidup usia lanjut.",
+    "image": "https://images.unsplash.com/photo-1516307365426-bea591f05011",
+    "medications": [
+      {
+        "name": "Calcium + Vitamin D",
+        "type": "Suplemen",
+        "description": "Mencegah osteoporosis",
+        "dosage": "1 tablet per hari",
+        "isPrescription": false
+      },
+      {
+        "name": "Simvastatin",
+        "type": "Penurun Kolesterol",
+        "description": "Menurunkan kadar kolesterol",
+        "dosage": "10-20 mg per hari",
+        "isPrescription": true
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Kesehatan Lingkungan",
+    "description": "Dampak lingkungan terhadap kesehatan seperti alergi dan gangguan pernapasan.",
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    "medications": [
+      {
+        "name": "Loratadine",
+        "type": "Antihistamin",
+        "description": "Meredakan alergi akibat debu atau polusi",
+        "dosage": "10 mg per hari",
+        "isPrescription": false
+      },
+      {
+        "name": "Salbutamol Inhaler",
+        "type": "Bronkodilator",
+        "description": "Meringankan sesak napas",
+        "dosage": "Sesuai anjuran dokter",
+        "isPrescription": true
+      }
+    ]
+  }
+]
