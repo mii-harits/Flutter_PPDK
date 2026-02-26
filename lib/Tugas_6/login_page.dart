@@ -372,7 +372,7 @@ class LoginPage extends StatelessWidget {
                                   onTap: () {
                                     Navigator.pushReplacement(
                                       context, 
-                                      MaterialPageRoute(builder: (_) => RegisterPage())
+                                      MaterialPageRoute(builder: (_) => Register())
                                     );
                                   },
                                   child: Text(
