@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ppkd/Tugas%2010/registrasi_page.dart';
 import 'package:flutter_ppkd/Tugas%209/list_map_page.dart';
 import 'package:flutter_ppkd/Tugas%209/list_page.dart';
 import 'package:flutter_ppkd/Tugas%209/modul_page.dart';
+import 'package:flutter_ppkd/Tugas_11/database/preference.dart';
+import 'package:flutter_ppkd/extentions/navigator.dart';
+
 
 class DrawerGlobal extends StatefulWidget {
   const DrawerGlobal({super.key});
@@ -71,6 +75,13 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               selected: _selectedIndex == 2,
               onTap: () {
                 _onItemTapped(2);
+              },
+            ),
+            ListTile(
+              title: Text("Logout"),
+              onTap: () {
+                PreferenceHandler().deleteIsLogin();
+                context.pushAndRemoveAll(RegistrasiPage());
               },
             ),
           ],

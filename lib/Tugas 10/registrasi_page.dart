@@ -1,6 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_ppkd/Tugas%2010/home_page_10.dart';
+// import 'package:flutter_ppkd/Tugas%2010/home_page_10.dart';
+import 'package:flutter_ppkd/Tugas%209/drawer_global.dart';
+import 'package:flutter_ppkd/Tugas_11/database/sqflite.dart';
+import 'package:flutter_ppkd/Tugas_11/models/user_models.dart';
 import 'package:flutter_ppkd/extentions/navigator.dart';
+import 'package:flutter_ppkd/Tugas_11/database/preference.dart';
 
 class RegistrasiPage extends StatefulWidget {
   const RegistrasiPage({super.key});
@@ -10,15 +16,15 @@ class RegistrasiPage extends StatefulWidget {
 }
 
 class _RegistrasiPageState extends State<RegistrasiPage> {
-  final TextEditingController namaController = TextEditingController();
-  final TextEditingController kotaController = TextEditingController();
-  final TextEditingController teleponController = TextEditingController();
+  // final TextEditingController namaController = TextEditingController();
+  // final TextEditingController kotaController = TextEditingController();
+  // final TextEditingController teleponController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordSatuController = TextEditingController();
-  final TextEditingController passwordDuaController = TextEditingController();
+  // final TextEditingController passwordDuaController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool isVisibility = true;
-  bool _isVisibility = true;
+  // bool _isVisibility = true;
 
   void visibilityOnOff() {
     isVisibility = !isVisibility;
@@ -26,11 +32,11 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
     setState(() {});
   }
 
-  void _visibilityOnOff() {
-    // isVisibility = !isVisibility;
-    _isVisibility = !_isVisibility;
-    setState(() {});
-  }
+  // void _visibilityOnOff() {
+  //   // isVisibility = !isVisibility;
+  //   _isVisibility = !_isVisibility;
+  //   setState(() {});
+  // }
   
   
   @override
@@ -44,73 +50,73 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TextFormField(
-                controller: namaController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  hintText: 'Masukkan Nama Lengkap Anda',
-                  labelText: 'Nama Lengkap',
-                  prefixIcon: Icon(Icons.person_outline)
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Nama Lengkap Tidak Boleh Kosong";
-                  }
-                  return null;
-                },
-              ),
+              // TextFormField(
+              //   controller: namaController,
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(20)
+              //     ),
+              //     hintText: 'Masukkan Nama Lengkap Anda',
+              //     labelText: 'Nama Lengkap',
+              //     prefixIcon: Icon(Icons.person_outline)
+              //   ),
+              //   // validator: (value) {
+              //   //   if (value == null || value.isEmpty) {
+              //   //     return "Nama Lengkap Tidak Boleh Kosong";
+              //   //   }
+              //   //   return null;
+              //   // },
+              // ),
 
-              SizedBox(height: 20,),
+              // SizedBox(height: 20,),
 
-              TextFormField(
-                controller: kotaController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  hintText: 'Masukkan Kota Asal Anda',
-                  labelText: 'Kota Asal',
-                  prefixIcon: Icon(Icons.location_on)
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Kota Asal Tidak Boleh Kosong";
-                  }
-                  return null;
-                },
-              ),
+              // TextFormField(
+              //   controller: kotaController,
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(20)
+              //     ),
+              //     hintText: 'Masukkan Kota Asal Anda',
+              //     labelText: 'Kota Asal',
+              //     prefixIcon: Icon(Icons.location_on)
+              //   ),
+              //   // validator: (value) {
+              //   //   if (value == null || value.isEmpty) {
+              //   //     return "Kota Asal Tidak Boleh Kosong";
+              //   //   }
+              //   //   return null;
+              //   // },
+              // ),
           
-              SizedBox(height: 20,),
+              // SizedBox(height: 20,),
           
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                controller: teleponController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  hintText: 'Masukkan Nomor Telepon Anda',
-                  labelText: 'Nomor Telepon',
-                  prefixIcon: Icon(Icons.phone_android_outlined)
-                ),
-                // validator: (value) {
-                //   final phone = (value ?? '').trim();
-                //   if (!RegExp(r'^\d+$').hasMatch(phone)) {
-                //     return 'Nomor telefon hanya dapat diisi angka';
-                //   }
-                //   if (phone.length < 9) {
-                //     return 'Nomor telepon minimal 9 digit';
-                //   }
-                //   if (phone.length > 15) {
-                //     return 'Nomor telepon maksimal 15 digit';
-                //   }
-                //   return null;
-                // },
-              ),
+              // TextFormField(
+              //   keyboardType: TextInputType.phone,
+              //   controller: teleponController,
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(20)
+              //     ),
+              //     hintText: 'Masukkan Nomor Telepon Anda',
+              //     labelText: 'Nomor Telepon',
+              //     prefixIcon: Icon(Icons.phone_android_outlined)
+              //   ),
+              //   // validator: (value) {
+              //   //   final phone = (value ?? '').trim();
+              //   //   if (!RegExp(r'^\d+$').hasMatch(phone)) {
+              //   //     return 'Nomor telefon hanya dapat diisi angka';
+              //   //   }
+              //   //   if (phone.length < 9) {
+              //   //     return 'Nomor telepon minimal 9 digit';
+              //   //   }
+              //   //   if (phone.length > 15) {
+              //   //     return 'Nomor telepon maksimal 15 digit';
+              //   //   }
+              //   //   return null;
+              //   // },
+              // ),
           
-              SizedBox(height: 20,),
+              // SizedBox(height: 20,),
           
               TextFormField(
                 controller: emailController,
@@ -122,14 +128,14 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                   labelText: 'Email',
                   prefixIcon: Icon(Icons.email_outlined)
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Email wajib diisi';
-                  } else if (!value.contains("@")) {
-                    return 'Email tidak valid';
-                  }
-                  return null;
-                },
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Email wajib diisi';
+                //   } else if (!value.contains("@")) {
+                //     return 'Email tidak valid';
+                //   }
+                //   return null;
+                // },
               ),
           
               SizedBox(height: 20,),
@@ -151,79 +157,142 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                     )
                   )
                 ),
-                validator: (value) {
-                  final password = value ?? "";
-                  final hasUppercase = RegExp(r'[A-Z]').hasMatch(password);
-                  final hasLowercase = RegExp(r'[a-z]').hasMatch(password);
-                  final hasNumber = RegExp(r'\d').hasMatch(password);
-                  if (password.isEmpty) {
-                    return 'Password wajib diisi';
-                  }
-                  if (password.length < 6) {
-                    return 'Password minimal 6 karakter';
-                  }
-                  if (!hasUppercase) {
-                    return "Password harus mengandung minimal 1 huruf besar";
-                  }
-                  if (!hasLowercase) {
-                    return "Password harus mengandung minimal 1 huruf kecil";
-                  }
-                  if (!hasNumber) {
-                    return "Password harus mengandung minimal 1 angka";
-                  }
-                  return null;
-                },
+                // validator: (value) {
+                //   final password = value ?? "";
+                //   final hasUppercase = RegExp(r'[A-Z]').hasMatch(password);
+                //   final hasLowercase = RegExp(r'[a-z]').hasMatch(password);
+                //   final hasNumber = RegExp(r'\d').hasMatch(password);
+                //   if (password.isEmpty) {
+                //     return 'Password wajib diisi';
+                //   }
+                //   if (password.length < 6) {
+                //     return 'Password minimal 6 karakter';
+                //   }
+                //   if (!hasUppercase) {
+                //     return "Password harus mengandung minimal 1 huruf besar";
+                //   }
+                //   if (!hasLowercase) {
+                //     return "Password harus mengandung minimal 1 huruf kecil";
+                //   }
+                //   if (!hasNumber) {
+                //     return "Password harus mengandung minimal 1 angka";
+                //   }
+                //   return null;
+                // },
               ),
           
-              SizedBox(height: 20,),
+              // SizedBox(height: 20,),
           
-              TextFormField(
-                obscureText: _isVisibility,
-                controller: passwordDuaController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  hintText: 'Masukkan Password Kembali',
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock_outline),
-                  suffixIcon: InkWell(
-                    onTap: () {
-                      _visibilityOnOff();
-                    },
-                    child: Icon(
-                      !_isVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined
-                    )
-                  )
-                ),
-                validator: (value) {
-                  final password = value ?? "";
-                  if (password.isEmpty) {
-                    return 'Password wajib diisi';
-                  }
-                  if (value != passwordSatuController.text) {
-                    return 'Password harus sama';
-                  }
-                  return null;
-                },
-              ),
+              // TextFormField(
+              //   obscureText: _isVisibility,
+              //   controller: passwordDuaController,
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(20)
+              //     ),
+              //     hintText: 'Masukkan Password Kembali',
+              //     labelText: 'Password',
+              //     prefixIcon: Icon(Icons.lock_outline),
+              //     suffixIcon: InkWell(
+              //       onTap: () {
+              //         _visibilityOnOff();
+              //       },
+              //       child: Icon(
+              //         !_isVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined
+              //       )
+              //     )
+              //   ),
+              //   // validator: (value) {
+              //   //   final password = value ?? "";
+              //   //   if (password.isEmpty) {
+              //   //     return 'Password wajib diisi';
+              //   //   }
+              //   //   if (value != passwordSatuController.text) {
+              //   //     return 'Password harus sama';
+              //   //   }
+              //   //   return null;
+              //   // },
+              // ),
           
               SizedBox(height: 24,),
           
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      dialogError(context);
+                  onPressed: () async {
+                    final UserModel? login = await DBHelper.loginUser(
+                      email: emailController.text , 
+                      password: passwordSatuController.text
+                    );
+                    if (login != null) {
+                      PreferenceHandler().storingIsLogin(true);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Login Berhasil"))
+                      );
+                      await Future.delayed(Duration(seconds: 2));
+                      context.push(DrawerGlobal());
                     } else {
-                      print("Tidak Berhasil Tervalidasi");
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Login gagal, email atau password tidak terdaftar"))
+                      );
                     }
-                    print(emailController.text);
-                    print(passwordSatuController.text);
-                    print(passwordDuaController.text);
+                    // context.push(DrawerGlobal());
+
+                    // DBHelper.registerUser(
+                    //   UserModel(
+                    //     email: emailController.text,
+                    //     password: passwordSatuController.text,
+                    //   )
+                    // );
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   SnackBar(content: Text("Pendaftaran Berhasil"))
+                    // );
+
+                    // var dataIsLogin = PreferenceHandler.getIsLogin();
+                    // print(dataIsLogin);
+                    // if (_formKey.currentState!.validate()) {
+                    //   // context.push(DrawerGlobal());
+                    //   dialogError(context);
+                    // } else {
+                    //   print("Tidak Berhasil Tervalidasi");
+                    // }
+                    // print(emailController.text);
+                    // print(passwordSatuController.text);
+                    // print(passwordDuaController.text);
                   },
                   child: Text("Masuk")
+                ),
+              ),
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // PreferenceHandler().storingIsLogin(true);
+                    // context.push(DrawerGlobal());
+                    DBHelper.registerUser(
+                      UserModel(
+                        email: emailController.text,
+                        password: passwordSatuController.text,
+                      )
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Pendaftaran Berhasil"))
+                    );
+
+                    // var dataIsLogin = PreferenceHandler.getIsLogin();
+                    // print(dataIsLogin);
+                    // if (_formKey.currentState!.validate()) {
+                    //   // context.push(DrawerGlobal());
+                    //   dialogError(context);
+                    // } else {
+                    //   print("Tidak Berhasil Tervalidasi");
+                    // }
+                    // print(emailController.text);
+                    // print(passwordSatuController.text);
+                    // print(passwordDuaController.text);
+                  },
+                  child: Text("Daftar")
                 ),
               )
             ],
@@ -233,67 +302,67 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
     );
   }
 
-  Future<dynamic> dialogError(BuildContext context) {
-    return showDialog(
-      context: context,
-      builder: (_) {
-        return AlertDialog(
-          title: Text(
-            "Verifikasi Data",
-            style: TextStyle(fontSize: 24),
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Nama : ${namaController.text}"),
-              SizedBox(height: 8,),
+  // Future<dynamic> dialogError(BuildContext context) {
+  //   return showDialog(
+  //     context: context,
+  //     builder: (_) {
+  //       return AlertDialog(
+  //         title: Text(
+  //           "Verifikasi Data",
+  //           style: TextStyle(fontSize: 24),
+  //         ),
+  //         content: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text("Nama : ${namaController.text}"),
+  //             SizedBox(height: 8,),
 
-              Text("Kota : ${kotaController.text}"),
-              SizedBox(height: 8,),
+  //             Text("Kota : ${kotaController.text}"),
+  //             SizedBox(height: 8,),
 
-              if (teleponController.text.trim().isNotEmpty) ...[
-              Text("Telepon : ${teleponController.text}"),
-              SizedBox(height: 8,),
-              ],
+  //             if (teleponController.text.trim().isNotEmpty) ...[
+  //             Text("Telepon : ${teleponController.text}"),
+  //             SizedBox(height: 8,),
+  //             ],
 
-              Text("Email : ${emailController.text}"),
-              SizedBox(height: 8,),
+  //             Text("Email : ${emailController.text}"),
+  //             SizedBox(height: 8,),
 
-              Text("Password : ${passwordSatuController.text}"),
-              SizedBox(height: 15,),
+  //             Text("Password : ${passwordSatuController.text}"),
+  //             SizedBox(height: 15,),
 
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        context.pop();
-                        context.push(HomePage10(
-                          nama: namaController.text,
-                          kota: kotaController.text
-                        ));
-                      },
-                      child: Text("Lanjutkan")
-                    ),
-                  ),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        context.pop();
-                      },
-                      child: Text(
-                        "Batal",
-                        style: TextStyle(color: Colors.red),
-                      )
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        );
-      },
-    );
-  }
+  //             Row(
+  //               children: [
+  //                 Expanded(
+  //                   child: ElevatedButton(
+  //                     onPressed: () {
+  //                       context.pop();
+  //                       context.push(HomePage10(
+  //                         nama: namaController.text,
+  //                         kota: kotaController.text
+  //                       ));
+  //                     },
+  //                     child: Text("Lanjutkan")
+  //                   ),
+  //                 ),
+  //                 Expanded(
+  //                   child: ElevatedButton(
+  //                     onPressed: () {
+  //                       context.pop();
+  //                     },
+  //                     child: Text(
+  //                       "Batal",
+  //                       style: TextStyle(color: Colors.red),
+  //                     )
+  //                   ),
+  //                 )
+  //               ],
+  //             )
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 } 

@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ppkd/Tugas%2010/registrasi_page.dart';
+import 'package:flutter_ppkd/Tugas_11/view/splash_screen.dart';
 import 'package:flutter_ppkd/Tugas_6/forget_password.dart';
-import 'package:flutter_ppkd/Tugas_6/login_page.dart';
+import 'package:flutter_ppkd/Tugas_11/database/preference.dart';
+// import 'package:flutter_ppkd/Tugas%2010/registrasi_page.dart';
 // import 'package:flutter_ppkd/Tugas_7&8/tugas_7.dart';
-// import 'package:flutter_ppkd/tugas_flutter/tugas_4.dart';
+// import 'package:flutter_ppkd/Tugas_6/login_page.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas_5.dart';
+// import 'package:flutter_ppkd/tugas_flutter/tugas_4.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas2.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas_3.dart';
 
-void main() {
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await PreferenceHandler().init();
   runApp(const MyApp());
 }
 
@@ -19,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         // '/': (context) => LoginPage(),
@@ -43,7 +49,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: RegistrasiPage(),
+      home: SplashScreen(),
     );
   }
 }
