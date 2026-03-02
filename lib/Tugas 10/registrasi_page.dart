@@ -1,7 +1,7 @@
-import 'dart:math';
+// import 'dart:math';
+// import 'package:flutter_ppkd/Tugas%2010/home_page_10.dart';
 
 import 'package:flutter/material.dart';
-// import 'package:flutter_ppkd/Tugas%2010/home_page_10.dart';
 import 'package:flutter_ppkd/Tugas%209/drawer_global.dart';
 import 'package:flutter_ppkd/Tugas_11/database/sqflite.dart';
 import 'package:flutter_ppkd/Tugas_11/models/user_models.dart';
@@ -37,8 +37,7 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
   //   _isVisibility = !_isVisibility;
   //   setState(() {});
   // }
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,9 +86,9 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
               //   //   return null;
               //   // },
               // ),
-          
+
               // SizedBox(height: 20,),
-          
+
               // TextFormField(
               //   keyboardType: TextInputType.phone,
               //   controller: teleponController,
@@ -115,18 +114,17 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
               //   //   return null;
               //   // },
               // ),
-          
+
               // SizedBox(height: 20,),
-          
               TextFormField(
                 controller: emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   hintText: 'Masukkan Email Anda',
                   labelText: 'Email',
-                  prefixIcon: Icon(Icons.email_outlined)
+                  prefixIcon: Icon(Icons.email_outlined),
                 ),
                 // validator: (value) {
                 //   if (value == null || value.isEmpty) {
@@ -137,15 +135,15 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                 //   return null;
                 // },
               ),
-          
-              SizedBox(height: 20,),
-          
+
+              SizedBox(height: 20),
+
               TextFormField(
                 obscureText: isVisibility,
                 controller: passwordSatuController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   hintText: 'Masukkan Password Anda',
                   labelText: 'Password',
@@ -153,9 +151,11 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                   suffixIcon: InkWell(
                     onTap: visibilityOnOff,
                     child: Icon(
-                      !isVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined
-                    )
-                  )
+                      !isVisibility
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                    ),
+                  ),
                 ),
                 // validator: (value) {
                 //   final password = value ?? "";
@@ -180,9 +180,9 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                 //   return null;
                 // },
               ),
-          
+
               // SizedBox(height: 20,),
-          
+
               // TextFormField(
               //   obscureText: _isVisibility,
               //   controller: passwordDuaController,
@@ -213,27 +213,30 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
               //   //   return null;
               //   // },
               // ),
-          
-              SizedBox(height: 24,),
-          
+              SizedBox(height: 24),
+
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
                     final UserModel? login = await DBHelper.loginUser(
-                      email: emailController.text , 
-                      password: passwordSatuController.text
+                      email: emailController.text,
+                      password: passwordSatuController.text,
                     );
                     if (login != null) {
                       PreferenceHandler().storingIsLogin(true);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Login Berhasil"))
-                      );
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(SnackBar(content: Text("Login Berhasil")));
                       await Future.delayed(Duration(seconds: 2));
                       context.push(DrawerGlobal());
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Login gagal, email atau password tidak terdaftar"))
+                        SnackBar(
+                          content: Text(
+                            "Login gagal, email atau password tidak terdaftar",
+                          ),
+                        ),
                       );
                     }
                     // context.push(DrawerGlobal());
@@ -260,7 +263,7 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                     // print(passwordSatuController.text);
                     // print(passwordDuaController.text);
                   },
-                  child: Text("Masuk")
+                  child: Text("Masuk"),
                 ),
               ),
 
@@ -274,10 +277,10 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                       UserModel(
                         email: emailController.text,
                         password: passwordSatuController.text,
-                      )
+                      ),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Pendaftaran Berhasil"))
+                      SnackBar(content: Text("Pendaftaran Berhasil")),
                     );
 
                     // var dataIsLogin = PreferenceHandler.getIsLogin();
@@ -292,9 +295,9 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                     // print(passwordSatuController.text);
                     // print(passwordDuaController.text);
                   },
-                  child: Text("Daftar")
+                  child: Text("Daftar"),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -365,4 +368,4 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
   //     },
   //   );
   // }
-} 
+}

@@ -4,8 +4,9 @@ import 'package:flutter_ppkd/Tugas%209/list_map_page.dart';
 import 'package:flutter_ppkd/Tugas%209/list_page.dart';
 import 'package:flutter_ppkd/Tugas%209/modul_page.dart';
 import 'package:flutter_ppkd/Tugas_11/database/preference.dart';
+import 'package:flutter_ppkd/Tugas_11/view/cr_siswa.dart';
+import 'package:flutter_ppkd/Tugas_11/view/pendaftaran_user_screen.dart';
 import 'package:flutter_ppkd/extentions/navigator.dart';
-
 
 class DrawerGlobal extends StatefulWidget {
   const DrawerGlobal({super.key});
@@ -27,13 +28,15 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
   static List<Widget> listwidget = [
     ListPageDay14(),
     ListMapPageDay14(),
-    ModulPage()
+    ModulPage(),
+    CrSiswaScreen(),
+    PendaftaranUserScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ListView.builder Session"),
+        title: Text("Drawer"),
         backgroundColor: Colors.teal,
         centerTitle: true,
       ),
@@ -42,15 +45,10 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.teal
-              ),
+              decoration: BoxDecoration(color: Colors.teal),
               child: Text(
                 'Navigation Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+                style: TextStyle(color: Colors.white, fontSize: 24),
               ),
             ),
             ListTile(
@@ -78,6 +76,22 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.people),
+              title: const Text("Cr Siswa"),
+              selected: _selectedIndex == 3,
+              onTap: () {
+                _onItemTapped(3);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.app_registration_rounded),
+              title: const Text("Pendaftaran User"),
+              selected: _selectedIndex == 4,
+              onTap: () {
+                _onItemTapped(4);
+              },
+            ),
+            ListTile(
               title: Text("Logout"),
               onTap: () {
                 PreferenceHandler().deleteIsLogin();
@@ -87,9 +101,7 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
           ],
         ),
       ),
-      body: Center(
-        child: listwidget.elementAt(_selectedIndex),
-      ),
+      body: Center(child: listwidget.elementAt(_selectedIndex)),
     );
   }
 }
