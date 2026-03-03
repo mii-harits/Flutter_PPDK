@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ppkd/Tugas_11/database/pasien_controller.dart';
 import 'package:flutter_ppkd/Tugas_11/models/pasien_model.dart';
 import 'package:flutter_ppkd/Tugas_11/utils/decoration_form.dart';
+import 'package:flutter_ppkd/extentions/navigator.dart';
 
 class PendaftaranUserScreen extends StatefulWidget {
   const PendaftaranUserScreen({super.key});
@@ -48,6 +49,10 @@ class _PendaftaranUserScreenState extends State<PendaftaranUserScreen> {
                         decoration: decorationConstant(
                           hintText: "Masukkkan Nama Pasien",
                           labelText: "Nama Pasien",
+                          labelStyle: TextStyle(color: Colors.white),
+                          hintStyle: TextStyle(color: Colors.white),
+                          borderSide: BorderSide(color: Colors.white),
+                          borderSideFocused: BorderSide(color: Colors.white),
                         ),
                       ),
 
@@ -60,6 +65,10 @@ class _PendaftaranUserScreenState extends State<PendaftaranUserScreen> {
                         decoration: decorationConstant(
                           hintText: "Masukkan Gejala Yang Pasien Rasakan...",
                           labelText: "Keluhan Penyakit",
+                          labelStyle: TextStyle(color: Colors.white),
+                          hintStyle: TextStyle(color: Colors.white),
+                          borderSide: BorderSide(color: Colors.white),
+                          borderSideFocused: BorderSide(color: Colors.white),
                         ),
                       ),
 
@@ -72,6 +81,10 @@ class _PendaftaranUserScreenState extends State<PendaftaranUserScreen> {
                         decoration: decorationConstant(
                           hintText: "Masukkkan Diagnosismu Sebagai Dokter...",
                           labelText: "Diagnosis Dokter",
+                          labelStyle: TextStyle(color: Colors.white),
+                          hintStyle: TextStyle(color: Colors.white),
+                          borderSide: BorderSide(color: Colors.white),
+                          borderSideFocused: BorderSide(color: Colors.white),
                         ),
                       ),
 
@@ -161,34 +174,165 @@ class _PendaftaranUserScreenState extends State<PendaftaranUserScreen> {
       ),
     );
   }
-}
 
-FutureBuilder<List<PasienModel>> PasienWidget() {
-  return FutureBuilder<List<PasienModel>>(
-    future: PasienController.getAllPasien(),
-    builder: (BuildContext context, AsyncSnapshot snapshot) {
-      if (!snapshot.hasData) {
-        return CircularProgressIndicator();
-      }
-      final dataPasien = snapshot.data as List<PasienModel>;
-      return ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: dataPasien.length,
-        itemBuilder: (BuildContext context, int index) {
-          final items = dataPasien[index];
-          return ListTile(
-            title: Text(items.namaPasien),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(items.keluhanPenyakit),
-                Text(items.diagnosisDokter),
-              ],
+  FutureBuilder<List<PasienModel>> PasienWidget() {
+    return FutureBuilder<List<PasienModel>>(
+      future: PasienController.getAllPasien(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (!snapshot.hasData) {
+          return CircularProgressIndicator();
+        }
+        final dataPasien = snapshot.data as List<PasienModel>;
+        return ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: dataPasien.length,
+          itemBuilder: (BuildContext context, int index) {
+            final items = dataPasien[index];
+            return ListTile(
+              title: Text(items.namaPasien),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(items.keluhanPenyakit),
+                  Text(items.diagnosisDokter),
+                ],
+              ),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: () async {
+                      await showEditDialog(context, items);
+                      // dataPasien = await PasienController.getAllPasien();
+                      setState(() {});
+                    },
+                    icon: Icon(Icons.edit),
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      await showDeleteDialog(context, items.id!);
+                      // dataPasien = await PasienController.getAllPasien();
+                      setState(() {});
+                    },
+                    icon: Icon(Icons.delete),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Future<void> showEditDialog(BuildContext context, PasienModel items) async {
+    final namaPasienController = TextEditingController(text: items.namaPasien);
+    final keluhanPasienController = TextEditingController(
+      text: items.keluhanPenyakit,
+    );
+    final diagnosisDokterController = TextEditingController(
+      text: items.diagnosisDokter,
+    );
+
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Edit Pasien"),
+          content: Column(
+            children: [
+              TextFormField(
+                controller: namaPasienController,
+                decoration: decorationConstant(
+                  hintText: "Nama Pasien",
+                  labelText: "Nama Pasien",
+                ),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                controller: keluhanPasienController,
+                maxLines: null,
+                decoration: decorationConstant(
+                  hintText: "Masukkan Gejala Yang Pasien Rasakan...",
+                  labelText: "Keluhan Pasien",
+                ),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                controller: diagnosisDokterController,
+                maxLines: null,
+                decoration: decorationConstant(
+                  hintText: "Masukkkan Diagnosismu Sebagai Dokter...",
+                  labelText: "Diagnosis Dokter",
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                context.pop();
+              },
+              child: Text("Batal"),
             ),
-          );
-        },
-      );
-    },
-  );
+            ElevatedButton(
+              onPressed: () async {
+                if (items.id == null) {
+                  return;
+                }
+                await PasienController.updatePasien(
+                  PasienModel(
+                    id: items.id,
+                    namaPasien: namaPasienController.text,
+                    keluhanPenyakit: keluhanPasienController.text,
+                    diagnosisDokter: diagnosisDokterController.text,
+                  ),
+                );
+                context.pop();
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text("Data Telah Terupdate")));
+              },
+              child: Text("Simpan Perubahan"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> showDeleteDialog(BuildContext context, int id) async {
+    final confirm = await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Konfirmasi"),
+          content: Text("Apakah Anda Yakin Ingin Menghapus Data Ini?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                context.pop(false);
+              },
+              child: Text("Batal"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                context.pop(true);
+              },
+              child: Text("Hapus"),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true) {
+      await PasienController.deletePasien(id);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Data Berhasil Dihapus")));
+      setState(() {});
+    }
+  }
 }
