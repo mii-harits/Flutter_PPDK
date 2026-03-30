@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ppkd/Tugas_11/view/splash_screen.dart';
+import 'package:flutter_ppkd/Tugas_14/views/get_game_of_thrones_data.dart';
 import 'package:flutter_ppkd/Tugas_6/forget_password.dart';
 import 'package:flutter_ppkd/Tugas_11/database/preference.dart';
 // import 'package:flutter_ppkd/Tugas%2010/registrasi_page.dart';
@@ -10,8 +10,7 @@ import 'package:flutter_ppkd/Tugas_11/database/preference.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas2.dart';
 // import 'package:flutter_ppkd/tugas_flutter/tugas_3.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await PreferenceHandler().init();
   runApp(const MyApp());
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (context) => LoginPage(),
-        '/halamanBaru': (context) => ForgetPassword()
+        '/halamanBaru': (context) => ForgetPassword(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -49,7 +48,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreen(),
+      home: GetGameOfThronesData(),
     );
   }
 }
